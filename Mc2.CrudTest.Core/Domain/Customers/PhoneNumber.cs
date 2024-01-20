@@ -1,3 +1,3 @@
 namespace Domain.Customers;
 
-public record PhoneNumber (int CountryCode,int Number);
+public record PhoneNumber (string CountryCode,string Number);
