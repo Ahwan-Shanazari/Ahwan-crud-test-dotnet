@@ -1,4 +1,7 @@
+using Mc2.CrudTest.Data.Tools;
+using Mc2.CrudTest.Persistence.Contexts;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mc2.CrudTest.Presentation
 {
@@ -12,6 +15,10 @@ namespace Mc2.CrudTest.Presentation
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase("Temp"));
+            builder.Services.AddSingleton<CacheContext>();
+            builder.Services.AddScoped<ContextUpdater>();
 
             var app = builder.Build();
 

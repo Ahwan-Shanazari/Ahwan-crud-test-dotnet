@@ -15,5 +15,11 @@
     <ProjectReference Include="..\Shared\Mc2.CrudTest.Presentation.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore.InMemory">
+      <HintPath>..\..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.inmemory\7.0.15\lib\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 
 </Project>
