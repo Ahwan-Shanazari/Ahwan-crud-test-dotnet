@@ -13,8 +13,9 @@ namespace Mc2.CrudTest.Presentation
 
             // Add services to the container.
 
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddRazorPages();
+            builder.Services.AddControllers();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<ApplicationContext>(options => options.UseInMemoryDatabase("Temp"));
             builder.Services.AddSingleton<CacheContext>();
@@ -25,7 +26,8 @@ namespace Mc2.CrudTest.Presentation
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseWebAssemblyDebugging();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
             else
             {
@@ -36,15 +38,13 @@ namespace Mc2.CrudTest.Presentation
 
             app.UseHttpsRedirection();
 
-            app.UseBlazorFrameworkFiles();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
 
-            app.MapRazorPages();
             app.MapControllers();
-            app.MapFallbackToFile("index.html");
 
             app.Run();
         }
