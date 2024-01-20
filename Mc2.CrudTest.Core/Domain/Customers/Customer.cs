@@ -10,8 +10,11 @@ public class Customer
     public string Email { get; private set; }
     public string BankAccountNumber { get; private set; }
 
-    public Customer(string firstName, string lastName, PhoneNumber phoneNumber, string email, string bankAccountNumber)
+    public Customer(string firstName, string lastName, PhoneNumber phoneNumber, string email, string bankAccountNumber,long? id =null)
     {
+        if (id is not null)
+            id = id;
+        
         FirstName = firstName;
         LastName = lastName;
         PhoneNumber = phoneNumber;

@@ -50,6 +50,17 @@ public class CustomerController : ControllerBase
         var customer = _cacheContext.Customers.GetValueOrDefault(id);
         return Ok(customer);
     }
+    
+    [HttpPatch]
+    public IActionResult Update(long id,CustomerModel model)
+    {
+        if (!ValidateCustomer(model))
+            return StatusCode(406, _errorMessage);
+        
+        _contextUpdater.UpdateCustomer(new Customer(model.FirstName, model.LastName,
+            new Domain.Customers.PhoneNumber(model.CountryCode, model.Number), model.Email, model.BankAccountNumber,id));
+        return Ok();
+    }
 
     #endregion
 
