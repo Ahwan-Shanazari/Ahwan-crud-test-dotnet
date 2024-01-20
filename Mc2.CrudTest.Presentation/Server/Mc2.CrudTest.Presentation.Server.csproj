@@ -21,6 +21,9 @@
     <Reference Include="Microsoft.EntityFrameworkCore.InMemory">
       <HintPath>..\..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.inmemory\7.0.15\lib\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll</HintPath>
     </Reference>
+    <Reference Include="PhoneNumbers">
+      <HintPath>PhoneNumbers.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 

@@ -13,4 +13,14 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Mc2.CrudTest.Persistence\Mc2.CrudTest.Persistence.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\libphonenumber" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PhoneNumbers">
+      <HintPath>..\..\..\..\libphonenumber-csharp-main\csharp\PhoneNumbers\bin\Debug\net7.0\PhoneNumbers.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
