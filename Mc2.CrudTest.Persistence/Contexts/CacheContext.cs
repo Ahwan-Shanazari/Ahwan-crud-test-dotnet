@@ -5,5 +5,5 @@ namespace Mc2.CrudTest.Persistence.Contexts;
 
 public class CacheContext
 {
-    public ConcurrentDictionary<int, CustomerView> Customers { get; } = new();
+    public ConcurrentDictionary<long, CustomerView> Customers { get; } = new();
 }
