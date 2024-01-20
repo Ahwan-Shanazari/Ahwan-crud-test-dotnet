@@ -23,9 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CEEA02F0-DEBC-42A1-B7D7-9EF48E15EB21}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{68BA1A5B-5A76-43C7-A517-2DCFDFF7D82A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{68BA1A5B-5A76-43C7-A517-2DCFDFF7D82A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.Data", "Mc2.CrudTest.Data\Mc2.CrudTest.Data.csproj", "{74824EB8-AB5D-4EEC-B548-96A255C8B4B0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mc2.CrudTest.Persistence", "Mc2.CrudTest.Persistence\Mc2.CrudTest.Persistence.csproj", "{74824EB8-AB5D-4EEC-B548-96A255C8B4B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,6 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Mc2.CrudTest.Data\Mc2.CrudTest.Data.csproj" />
+    <ProjectReference Include="..\..\Mc2.CrudTest.Persistence\Mc2.CrudTest.Persistence.csproj" />
   </ItemGroup>
 </Project>
