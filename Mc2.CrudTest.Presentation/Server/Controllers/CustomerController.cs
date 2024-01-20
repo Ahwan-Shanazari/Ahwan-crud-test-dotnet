@@ -61,6 +61,13 @@ public class CustomerController : ControllerBase
             new Domain.Customers.PhoneNumber(model.CountryCode, model.Number), model.Email, model.BankAccountNumber,id));
         return Ok();
     }
+    
+    [HttpDelete]
+    public IActionResult Delete(long id)
+    {   
+        _contextUpdater.RemoveCustomer(id);
+        return Ok();
+    }
 
     #endregion
 
