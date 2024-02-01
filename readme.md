@@ -1,47 +1,58 @@
-# CRUD Code Test 
+# ASP.NET 8 CRUD App with Custom CQRS and Google PhoneNumber Validation
 
-Please read each note very carefully!
-Feel free to add/change the project structure to a clean architecture to your view.
-and if you are not able to work on the FrontEnd project, you can add a Swagger UI
-in a new Front project.
+## Overview
 
-Create a simple CRUD application with .NET that implements the below model:
-```
-Customer {
-	FirstName
-	LastName
-	DateOfBirth
-	PhoneNumber
-	Email
-	BankAccountNumber
-}
-```
-## Practices and patterns (Must):
+This repository contains an ASP.NET 8 CRUD (Create, Read, Update, Delete) application built on top of the clean architecture. The application implements a custom Command Query Responsibility Segregation (CQRS) pattern for better separation of concerns. Additionally, it utilizes the Google `libphonenumber-csharp` library for phone number validation.
 
-- [TDD](https://docs.microsoft.com/en-us/visualstudio/test/quick-start-test-driven-development-with-test-explorer?view=vs-2022)
-- [DDD](https://en.wikipedia.org/wiki/Domain-driven_design)
-- [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development)
-- [Clean architecture](https://github.com/jasontaylordev/CleanArchitecture)
-- [CQRS](https://en.wikipedia.org/wiki/Command%E2%80%93query_separation#Command_query_responsibility_separation) pattern ([Event sourcing](https://en.wikipedia.org/wiki/Domain-driven_design#Event_sourcing)).
-- Clean git commits that show your work progress.
+### Project Structure
 
-### Validations (Must)
+- **src**: Contains the source code of the ASP.NET 8 application.
+  - **Mc2.CrudTest.Presentation.Server**: The API layer responsible for handling HTTP requests and responses.
+  - **Mc2.CrudTest.Presentation.Client**: The UI layer that is ready for implementing a razor-pages/MVC application in it.
+  - **Mc2.CrudTest.Presentation.Shared**: This layer contains assets that are shared between the Server layer and the Client layer.
+  - **Mc2.CrudTest.Persistence**: The Persistence layer handles data access and database services.
+  - **Mc2.CrudTest.Core.Application**: The application layer containing the application's business logic and CQRS implementation.
+  - **Mc2.CrudTest.Core.Domain**: The domain layer defining the core entities and business logic.
 
-- During Create; validate the phone number to be a valid *mobile* number only (Please use [Google LibPhoneNumber](https://github.com/google/libphonenumber) to validate number at the backend).
+## Getting Started
 
-- A Valid email and a valid bank account number must be checked before submitting the form.
+Follow these steps to set up and run the ASP.NET 8 CRUD app locally:
 
-- Customers must be unique in the database: By `Firstname`, `Lastname`, and `DateOfBirth`.
+1. **Clone the Repository**
 
-- Email must be unique in the database.
+    ```bash
+    git clone https://github.com/twcclegg/your-repository.git
+    cd your-repository
+    ```
 
-### Storage (Must)
+2. **Build and Run the Application**
 
-- Store the phone number in a database with minimized space storage (choose `varchar`/`string`, or `ulong` whichever store less space).
+    Open the solution in Visual Studio or use the following command in the terminal:
 
-### Delivery (Must)
-- Please clone this repository in a new GitHub repository in private mode and share with ID: `mason-chase` in private mode on github.com, make sure you do not erase my commits and then create a [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) (code review).
+    ```bash
+    dotnet build
+    dotnet run --project src/MyApp.Api
+    ```
 
-## Nice to do:
-- Blazor Web.
-- Docker-compose project that loads database service automatically which `docker-compose up`
+    The application will be accessible at `http://localhost:5000`.
+
+3. **Configure Google `libphonenumber-csharp`**
+
+    the dll of the library is already included in the repository but if you want to use new versions you can clone it from [here](https://github.com/twcclegg/libphonenumber-csharp) and build the dll yourself.
+
+## Usage
+
+### API Endpoints
+
+- **POST /api/Customer**: Create a customer.
+- **GET /api/Customer/{id}**: Recive a customer info.
+- **Patch /api/Customer/{id}**: Update a customer info.
+- **DELETE /api/Customer/{id}**: Delete a specific customer.
+
+### CQRS Implementation
+
+The application follows a custom CQRS pattern for better separation of concerns. Commands and queries are handled separately in the application layer (`Mc2.CrudTest.Core.Application`). The `Mc2.CrudTest.Core.Domain` layer defines the core entities and business logic.
+
+### Phone Number Validation
+
+The Google `libphonenumber-csharp` library is used for phone number validation.
